@@ -42,6 +42,15 @@ public void setPromedio(double promedio) {
 
 public Estudiante() {
 }
+
+public Estudiante(double promedio) {
+	this.promedio = promedio;
+}
+
+@Override
+public String toString() {
+	return "Estudiante [nombre=" + nombre + ", edad=" + edad + ", promedio=" + promedio + "]";
+}
    
    
    
