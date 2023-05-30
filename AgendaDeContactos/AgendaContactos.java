@@ -28,7 +28,8 @@ public class AgendaContactos <T>
 		listaContactos.remove(objeto);
 	}
 
-	public ArrayList<T> buscarPorNombre(String nombre) {
+	public ArrayList<T> buscarPorNombre(String nombre) 
+	{
 	    ArrayList<T> contactosEncontrados = new ArrayList<>();
 	    
 	    for (T contacto : listaContactos) {
@@ -38,8 +39,13 @@ public class AgendaContactos <T>
 	                contactosEncontrados.add(contacto);
 	            }
 	        }
-	    }
-	    
+	    }   
 	    return contactosEncontrados;
 	}
+	
+	
+	
+	
+	
+	
 } 

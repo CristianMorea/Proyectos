@@ -6,10 +6,10 @@ public class Main {
 	{
 	    AgendaContactos<Contacto> RegistroContactos = new AgendaContactos<Contacto>();
 	    
-	    Contacto contacto1 = new Contacto ("cristian","23","3127740543");
-	    Contacto contacto2 = new Contacto ("cristian","29","3135640543");
-	    Contacto contacto3 = new Contacto ("sergio","20","3124540543");
-	    Contacto contacto4 = new Contacto ("payan","218","3178740543");
+	    Contacto contacto1 = new Contacto ("cristian","3127740543","cristian@gmail.com");
+	    Contacto contacto2 = new Contacto ("cristian","3135640545","cristian2@gmail.com");
+	    Contacto contacto3 = new Contacto ("sergio","20","sergio@gmail,com");
+	    Contacto contacto4 = new Contacto ("payan","218","payan@gmail.com");
 	    
 	    
 	   RegistroContactos.agregarContacto(contacto1);
@@ -26,7 +26,7 @@ public class Main {
        
        System.out.println("BUSQUEDA POR NOMBRE");
        String nombre_a_buscar ="cristian";
-       System.out.println( RegistroContactos.buscarPorNombre(nombre_a_buscar)+"\n");  
+       System.out.println( RegistroContactos.buscarPorNombre(nombre_a_buscar));  
      
        
        
