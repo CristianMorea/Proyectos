@@ -11,6 +11,9 @@ public class Main {
 		    Estudiante estudiante1 = new Estudiante("Juan", 20, 85.5);
 	        Estudiante estudiante2 = new Estudiante("María", 22, 90.2);
 	        Estudiante estudiante3 = new Estudiante("Pedro", 21, 75.8);
+	        
+	        
+	        
            // REGISTRANDO ESTUDIANTES
             registro.Registrar(estudiante1);
             registro.Registrar(estudiante2);
@@ -19,6 +22,7 @@ public class Main {
             // IMPRIMIR ESTUDIANTES REGISTRADOS
             System.out.println("/nLOS ESTUDIANTES REGISTRADOS SON:");
             registro.mostrarEstudiantes();
+            
             
             
             //OBTENER PROMEDIO ESTUDIANTES
@@ -33,7 +37,7 @@ public class Main {
             
             for (Estudiante estudiante : estudiantePorEdad)
             {
-            	System.out.println(estudiante);
+            	System.out.println(registro.buscarEstudiantesPorEdad(edadBuscada));
             }
             
             
