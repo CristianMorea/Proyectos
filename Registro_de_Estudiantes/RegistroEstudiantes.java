@@ -33,6 +33,7 @@ public class RegistroEstudiantes<T>
        }
        return sumaPromedios / listEstudiantes.size();
    }
+  
    public ArrayList<T> buscarEstudiantesPorEdad(int edad) {
        ArrayList<T> estudiantesEncontrados = new ArrayList<>();
        for (Estudiante estudiante : listEstudiantes) {
