@@ -44,7 +44,12 @@ public class AgendaContactos <T>
 	}
 	
 	
-	
+	public void actualizarContacto(T contactoActualizado) {
+        int indice = listaContactos.indexOf(contactoActualizado);
+        if (indice != -1) {
+            listaContactos.set(indice, contactoActualizado);
+        }
+    }
 	
 	
 	

@@ -30,6 +30,11 @@ public class Main {
      
        
        
+       System.out.println("MODIFICAR INFORMACION ");
+       Contacto contactoActualizado = new Contacto("laura sofia","311804135","laveyadurmiente@gmail.com");
+       RegistroContactos.actualizarContacto(contactoActualizado);
+       
+       
        
 	}
 
