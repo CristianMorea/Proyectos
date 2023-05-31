@@ -45,9 +45,27 @@ public class AgendaContactos <T>
 	
 	
 	public void actualizarContacto(T contactoActualizado) {
-        int indice = listaContactos.indexOf(contactoActualizado);
-        if (indice != -1) {
-            listaContactos.set(indice, contactoActualizado);
+        int indice = -1;
+        
+        for (int i = 0;i<listaContactos.size();i++)
+        {
+        	Contacto contacto = (Contacto) listaContactos.get(i);
+        	if (contacto.equals(contactoActualizado))
+        	{
+        		indice = 1;
+        		break;
+        	}
+        	
+        }
+        if (indice != -1)
+    	{
+    		listaContactos.set(indice, contactoActualizado);
+    		System.out.println("CONTACTO ACTUALIZADO CORRECTAMENTE:");
+    		System.out.println(listaContactos);
+    	}
+        else
+        {
+        	System.out.println("NO SE ENCONTRO EL CONTACTO EN LA AGENDA");
         }
     }
 	
