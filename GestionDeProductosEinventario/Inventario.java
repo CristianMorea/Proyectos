@@ -64,5 +64,17 @@ public class Inventario <T>
 	    }
 	    return totalInventario;
 	}
-
+	
+	//ACTUALIZAR DATOS DE UN PRODUCTO RECIVIENDO PARAMETRO PRODOUCTO
+	
+	public void ActualizarProducto(Producto producto) {
+	    int indice = listaProductos.indexOf(producto);
+	    if (indice != -1) {
+	        listaProductos.set(indice, (T) producto);
+	        System.out.println("Producto actualizado correctamente.");
+	    } else {
+	        System.out.println("El producto no se encuentra en la lista.");
+	    }
+	}
+	
 }
