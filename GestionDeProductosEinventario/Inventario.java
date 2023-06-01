@@ -24,57 +24,46 @@ public class Inventario <T>
 	{
 		for(T elementos : listaProductos)
 		{
-			System.out.println("LOS PRODUCTOS SON: ");
 			System.out.println(elementos);
+			
 		}
 	}
 	
 	
-	//METODO GENERICO PARA BUSCAR POR NOMBRE
-	public <T> ArrayList<T> buscarPorNombre(String nombre, ArrayList<T> lista) {
-	    ArrayList<T> encontrados = new ArrayList<>();
-	    for (T elemento : lista) {
-	        try {
-	            // Utilizamos reflexión para obtener el método getNombre() en tiempo de ejecución
-	            Method metodoGetNombre = elemento.getClass().getMethod("getNombre");
-	            String nombreElemento = (String) metodoGetNombre.invoke(elemento);
-	            if (nombreElemento.equals(nombre)) {
-	                encontrados.add(elemento);
+	// BUSCAR POR NOMBRE
+	 public ArrayList<T> buscarPorNombre(String nombre) {
+	        ArrayList<T> productosEncontrados = new ArrayList<>();
+	        for (T producto : listaProductos) {
+	            if (producto instanceof Producto && ((Producto) producto).getNombre().equals(nombre)) {
+	                productosEncontrados.add(producto);
 	            }
-	        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-	            // Manejo de excepciones
-	            e.printStackTrace();
 	        }
+	        return productosEncontrados;
 	    }
-	    return encontrados;
-	}
 	
 	//CALCULAR INVENTARIO DE MANERA GENERICA
-	public double calcularTotalInventario() {
-	    double totalInventario = 0;
-	    for (T elemento : listaProductos) {
-	        try {
-	            Method metodoGetValor = elemento.getClass().getMethod("getValor");
-	            double valorElemento = (double) metodoGetValor.invoke(elemento);
-	            totalInventario += valorElemento;
-	        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-	            // Manejo de excepciones
-	            e.printStackTrace();
+	 public double calcularValorTotalInventario() {
+	        double valorTotal = 0;
+	        for (T producto : listaProductos) {
+	            if (producto instanceof Producto) {
+	                double precio = ((Producto) producto).getPrecio();
+	                int cantidad = ((Producto) producto).getCantidad();
+	                valorTotal += precio * cantidad;
+	            }
+	        }
+	        return valorTotal;
+	    }
+	
+	//ACTUALIZAR DATOS DE UN PRODUCTO RECIBIENDO PARAMETRO PRODOUCTO
+	
+	 public void actualizarProducto(T productoActualizado) {
+	        int indice = listaProductos.indexOf(productoActualizado);
+	        if (indice != -1) {
+	            listaProductos.set(indice, productoActualizado);
+	            System.out.println("Producto actualizado correctamente.");
+	        } else {
+	            System.out.println("No se encontró el producto en el inventario.");
 	        }
 	    }
-	    return totalInventario;
-	}
-	
-	//ACTUALIZAR DATOS DE UN PRODUCTO RECIVIENDO PARAMETRO PRODOUCTO
-	
-	public void ActualizarProducto(Producto producto) {
-	    int indice = listaProductos.indexOf(producto);
-	    if (indice != -1) {
-	        listaProductos.set(indice, (T) producto);
-	        System.out.println("Producto actualizado correctamente.");
-	    } else {
-	        System.out.println("El producto no se encuentra en la lista.");
-	    }
-	}
 	
 }

@@ -1,7 +1,28 @@
 package GestionDeProductosEinventario;
 
+import java.util.Objects;
+
 public class Producto 
 {
+	@Override
+	public int hashCode() {
+		return Objects.hash(cantidad, codigo, nombre, precio);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Producto other = (Producto) obj;
+		return cantidad == other.cantidad && Objects.equals(codigo, other.codigo)
+				&& Objects.equals(nombre, other.nombre)
+				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio);
+	}
+
 	private String codigo;
 	private String nombre;
 	private double precio;
@@ -45,6 +66,12 @@ public class Producto
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+	}
+
+	@Override
+	public String toString() {
+		return "Producto [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", cantidad=" + cantidad
+				+ "]";
 	}
 	
 	
